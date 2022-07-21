@@ -1,0 +1,15 @@
+version: '3'
+services: 
+ redis-server1:
+  restart: on-failure
+  build: ./redis-server/
+  ports:
+   - "6379:6379"
+ redis-server2:
+  restart: "no"
+  image: redis
+ node-server:
+  build: ./node/
+  restart: always
+  ports:
+   - '4001:8081'
